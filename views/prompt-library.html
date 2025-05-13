@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt Library - NTU GMBA AI Toolkit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/prompt-library.css" />
+    <script>
+      // Embed Geist font from node_modules
+      const fontFiles = {
+        "GeistSans-Regular": "/fonts/geist-sans/Geist-Regular.woff2",
+        "GeistSans-Medium": "/fonts/geist-sans/Geist-Medium.woff2",
+        "GeistSans-Bold": "/fonts/geist-sans/Geist-Bold.woff2",
+      };
+
+      // Create CSS @font-face rules
+      const fontFaceCSS = Object.entries(fontFiles)
+        .map(([name, url]) => {
+          const weight = name.includes("Regular")
+            ? "normal"
+            : name.includes("Medium")
+            ? "500"
+            : name.includes("Bold")
+            ? "bold"
+            : "normal";
+          return `
+          @font-face {
+            font-family: 'GeistSans';
+            src: url('${url}') format('woff2');
+            font-weight: ${weight};
+            font-style: normal;
+            font-display: swap;
+          }
+        `;
+        })
+        .join("");
+
+      // Add CSS to head
+      const style = document.createElement("style");
+      style.textContent = fontFaceCSS;
+      document.head.appendChild(style);
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header prompt-header">
+        <a href="/" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        <h1>Prompt Library</h1>
+        <div class="tagline">
+          Enhance your problem solving with structured AI prompts
+        </div>
+        <div class="subtitle">
+          Learn to ask better, think deeper, and get more valuable results
+        </div>
+      </header>
+
+      <div class="filters-section">
+        <h3>Filter By:</h3>
+        <div class="filter-group">
+          <h4><i class="fas fa-tasks"></i> Action Pattern</h4>
+          <div class="filter-items" id="action-pattern-filters">
+            <!-- Filters will be dynamically added here -->
+          </div>
+        </div>
+        <div class="filter-group">
+          <h4><i class="fas fa-briefcase"></i> Use Case</h4>
+          <div class="filter-items" id="use-case-filters">
+            <!-- Filters will be dynamically added here -->
+          </div>
+        </div>
+        <div class="filter-group">
+          <h4><i class="fas fa-file-alt"></i> Output Format</h4>
+          <div class="filter-items" id="output-format-filters">
+            <!-- Filters will be dynamically added here -->
+          </div>
+        </div>
+        <button class="clear-filters-btn" id="clear-filters">
+          <i class="fas fa-times-circle"></i> Clear Filters
+        </button>
+      </div>
+
+      <div class="tools-container" id="prompt-library-container">
+        <!-- Content will be dynamically loaded here -->
+        <div class="loading">
+          <i class="fas fa-spinner fa-spin"></i>
+          <p>Loading prompt library...</p>
+        </div>
+      </div>
+
+      <footer>
+        <p>Version 1.0 — Released April 2025</p>
+        <p>
+          <i class="fas fa-user-graduate"></i> Created by NTU GMBA 2025 Student
+        </p>
+      </footer>
+    </div>
+
+    <script src="/js/prompt-library.js"></script>
+  </body>
+</html>

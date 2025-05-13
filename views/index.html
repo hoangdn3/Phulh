@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NTU - GMBA AI Toolkit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script>
+      // Embed Geist font from node_modules
+      const fontFiles = {
+        "GeistSans-Regular": "/fonts/geist-sans/Geist-Regular.woff2",
+        "GeistSans-Medium": "/fonts/geist-sans/Geist-Medium.woff2",
+        "GeistSans-Bold": "/fonts/geist-sans/Geist-Bold.woff2",
+      };
+
+      // Create CSS @font-face rules
+      const fontFaceCSS = Object.entries(fontFiles)
+        .map(([name, url]) => {
+          const weight = name.includes("Regular")
+            ? "normal"
+            : name.includes("Medium")
+            ? "500"
+            : name.includes("Bold")
+            ? "bold"
+            : "normal";
+          return `
+          @font-face {
+            font-family: 'GeistSans';
+            src: url('${url}') format('woff2');
+            font-weight: ${weight};
+            font-style: normal;
+            font-display: swap;
+          }
+        `;
+        })
+        .join("");
+
+      // Add CSS to head
+      const style = document.createElement("style");
+      style.textContent = fontFaceCSS;
+      document.head.appendChild(style);
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>NTU - GMBA AI Toolkit</h1>
+        <div class="tagline">Work Smart, Study Smarter.</div>
+        <div class="subtitle">
+          Empowering GMBA students with smart AI solutions.
+        </div>
+      </header>
+
+      <div class="tools-grid">
+        <!-- Learning Tools Section -->
+        <a href="/learning-tools" class="tool-card-link">
+          <div class="tool-card">
+            <div class="tool-header learning-tools">
+              <h2><i class="fas fa-book-open"></i> Learning Tools</h2>
+            </div>
+            <div class="tool-content">
+              <p class="tool-description">
+                Assist your academic assignments and casestudies
+              </p>
+              <ul>
+                <li><i class="fas fa-file-alt"></i> Summarize case studies</li>
+                <li><i class="fas fa-tasks"></i> Generate report outlines</li>
+                <li>
+                  <i class="fas fa-search"></i> Research scholarly articles
+                </li>
+              </ul>
+            </div>
+          </div>
+        </a>
+
+        <!-- Career Tools Section -->
+        <a href="/career-tools" class="tool-card-link">
+          <div class="tool-card">
+            <div class="tool-header career-tools">
+              <h2><i class="fas fa-briefcase"></i> Career Tools</h2>
+            </div>
+            <div class="tool-content">
+              <p class="tool-description">
+                Enhance your job application and interview
+              </p>
+              <ul>
+                <li><i class="fas fa-file-pdf"></i> Write a professional CV</li>
+                <li><i class="fas fa-envelope"></i> Draft a cover letter</li>
+                <li>
+                  <i class="fas fa-comments"></i> Prepare for an interview
+                </li>
+              </ul>
+            </div>
+          </div>
+        </a>
+
+        <!-- Prompt Library Section -->
+        <a href="/prompt-library" class="tool-card-link">
+          <div class="tool-card">
+            <div class="tool-header prompt-library">
+              <h2><i class="fas fa-lightbulb"></i> Prompt Library</h2>
+            </div>
+            <div class="tool-content">
+              <p class="tool-description">
+                Collection of useful prompts for various scenarios
+              </p>
+              <ul>
+                <li>
+                  <i class="fas fa-comment-dots"></i> Ready-to-use prompts
+                </li>
+                <li><i class="fas fa-filter"></i> Filter by categories</li>
+                <li><i class="fas fa-copy"></i> Copy with one click</li>
+              </ul>
+            </div>
+          </div>
+        </a>
+
+        <!-- AI Hacks Section -->
+        <div class="tool-card">
+          <div class="tool-header ai-hacks">
+            <h2><i class="fas fa-robot"></i> AI Hacks & Productivity Tips</h2>
+          </div>
+          <div class="tool-content">
+            <p class="tool-description">
+              Practical tips to boost your efficiency with AI
+            </p>
+          </div>
+        </div>
+
+        <!-- GMBA Resources Section -->
+        <div class="tool-card">
+          <div class="tool-header gmba-resources">
+            <h2><i class="fas fa-university"></i> GMBA Resources</h2>
+          </div>
+          <div class="tool-content">
+            <p class="tool-description">
+              Links to useful academic and career resources
+            </p>
+          </div>
+        </div>
+
+        <!-- Smart AI Usage Tips Section -->
+        <div class="tool-card">
+          <div class="tool-header smart-ai-usage">
+            <h2><i class="fas fa-brain"></i> Smart AI Usage Tips</h2>
+          </div>
+          <div class="tool-content">
+            <p class="tool-description">
+              How to use AI ethically and avoid plagiarism
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <div class="about-section">
+        <h2><i class="fas fa-info-circle"></i> About This Toolkit</h2>
+        <p>
+          Welcome to the NTU - GMBA AI Toolkit, a smart companion designed to
+          empower NTU GMBA students in their academic and career journey.
+          Developed by a GMBA 2025 student, this toolkit provides curated
+          AI-powered tools, smart prompts and productivity tips to help you
+          learn faster–work smarter, and all while maintaining academic
+          integrity.
+        </p>
+      </div>
+
+      <footer>
+        <p>Version 1.0 — Released April 2025</p>
+        <p>
+          <i class="fas fa-user-graduate"></i> Created by NTU GMBA 2025 Student
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

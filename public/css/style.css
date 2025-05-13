@@ -1,0 +1,497 @@
+/* Font Face */
+@font-face {
+  font-family: "GeistSans";
+  src: url("/public/fonts/GeistSans-Regular.woff2") format("woff2"),
+    url("/public/fonts/GeistSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GeistSans";
+  src: url("/public/fonts/GeistSans-Medium.woff2") format("woff2"),
+    url("/public/fonts/GeistSans-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GeistSans";
+  src: url("/public/fonts/GeistSans-Bold.woff2") format("woff2"),
+    url("/public/fonts/GeistSans-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GeistSans Fallback";
+  src: local("Inter"), local("Arial");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Global Styles */
+:root {
+  --primary-color: #4267b2;
+  --primary-dark: #385694;
+  --primary-light: #5578c3;
+
+  /* Màu sắc đa dạng cho các thẻ */
+  --learning-color: #3b5998;
+  --learning-light: #4c70ba;
+
+  --career-color: #2e7d32;
+  --career-light: #4caf50;
+
+  --prompt-color: #7b1fa2;
+  --prompt-light: #9c27b0;
+
+  --hacks-color: #ef6c00;
+  --hacks-light: #ff9800;
+
+  --resources-color: #0288d1;
+  --resources-light: #03a9f4;
+
+  --usage-color: #c62828;
+  --usage-light: #f44336;
+
+  --white: #ffffff;
+  --off-white: #f8f9fa;
+  --text-color: #333;
+  --text-muted: #6c757d;
+  --card-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --icon-color: rgba(255, 255, 255, 0.9);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: GeistSans, Inter, sans-serif;
+}
+
+body {
+  background-color: var(--primary-color);
+  background-image: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-dark) 100%
+  );
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 30px 10px;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 40px;
+  padding: 20px 0;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.header h1 {
+  font-size: 3.4rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  letter-spacing: -0.5px;
+}
+
+.tagline {
+  font-size: 1.8rem;
+  font-weight: 400;
+  opacity: 0.95;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  opacity: 0.85;
+  font-style: italic;
+  animation: fadeIn 1.5s ease-in-out;
+  margin-top: 5px;
+}
+
+/* Tools Grid Layout */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Tool Card Link */
+.tool-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: var(--transition);
+}
+
+.tool-card-link:hover {
+  transform: translateY(-5px);
+}
+
+.tool-card-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 103, 178, 0.3);
+  border-radius: 8px;
+}
+
+/* Tool Card Styles */
+.tool-card {
+  background-color: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 0;
+  transition: var(--transition);
+  transform: translateY(0);
+  height: 100%;
+}
+
+.tool-card:hover {
+  transform: translateY(0);
+}
+
+/* Tool Header Styles */
+.tool-header {
+  padding: 18px 22px;
+  color: var(--white);
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.tool-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+
+.tool-card:hover .tool-header::before {
+  transform: translateX(0);
+}
+
+/* Thêm hiệu ứng shimmer cho header */
+.tool-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 20%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: all 1s ease;
+  opacity: 0;
+}
+
+.tool-card:hover .tool-header::after {
+  left: 125%;
+  opacity: 1;
+  transition: all 0.8s ease;
+}
+
+.tool-header h2 {
+  font-size: 1.7rem;
+  margin: 0;
+  position: relative;
+}
+
+.tool-header i {
+  margin-right: 10px;
+  color: var(--icon-color);
+}
+
+.tool-content {
+  padding: 24px;
+  color: var(--text-color);
+  background-color: var(--white);
+  transition: var(--transition);
+  height: 100%;
+}
+
+.tool-card:hover .tool-content {
+  background-color: var(--off-white);
+}
+
+.tool-description {
+  margin-bottom: 18px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+ul {
+  padding-left: 25px;
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  position: relative;
+  color: var(--text-color);
+  padding-left: 5px;
+  display: flex;
+  align-items: center;
+}
+
+li i {
+  margin-right: 10px;
+  font-size: 0.9rem;
+  width: 20px;
+  text-align: center;
+}
+
+/* Màu cho các icon trong list ở mỗi thẻ */
+.learning-tools + .tool-content li i {
+  color: var(--learning-color);
+}
+
+.career-tools + .tool-content li i {
+  color: var(--career-color);
+}
+
+.prompt-library + .tool-content li i {
+  color: var(--prompt-color);
+}
+
+.ai-hacks + .tool-content li i {
+  color: var(--hacks-color);
+}
+
+.gmba-resources + .tool-content li i {
+  color: var(--resources-color);
+}
+
+.smart-ai-usage + .tool-content li i {
+  color: var(--usage-color);
+}
+
+/* Tool Header Background Colors */
+.learning-tools {
+  background-color: var(--learning-color);
+  background-image: linear-gradient(
+    to right,
+    var(--learning-color),
+    var(--learning-light)
+  );
+}
+
+.career-tools {
+  background-color: var(--career-color);
+  background-image: linear-gradient(
+    to right,
+    var(--career-color),
+    var(--career-light)
+  );
+}
+
+.prompt-library {
+  background-color: var(--prompt-color);
+  background-image: linear-gradient(
+    to right,
+    var(--prompt-color),
+    var(--prompt-light)
+  );
+}
+
+.ai-hacks {
+  background-color: var(--hacks-color);
+  background-image: linear-gradient(
+    to right,
+    var(--hacks-color),
+    var(--hacks-light)
+  );
+}
+
+.gmba-resources {
+  background-color: var(--resources-color);
+  background-image: linear-gradient(
+    to right,
+    var(--resources-color),
+    var(--resources-light)
+  );
+}
+
+.smart-ai-usage {
+  background-color: var(--usage-color);
+  background-image: linear-gradient(
+    to right,
+    var(--usage-color),
+    var(--usage-light)
+  );
+}
+
+/* About Section */
+.about-section {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: var(--card-shadow);
+  animation: fadeInUp 1.2s ease-in-out;
+  transition: var(--transition);
+  border-left: 4px solid var(--primary-color);
+}
+
+.about-section:hover {
+  box-shadow: 0 10px 25px rgba(66, 103, 178, 0.2);
+}
+
+.about-section h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.about-section h2 i {
+  margin-right: 10px;
+}
+
+.about-section p {
+  line-height: 1.7;
+  font-size: 1.15rem;
+  text-align: justify;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  color: var(--white);
+  padding: 20px 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  animation: fadeIn 1.4s ease-in-out;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer i {
+  margin-right: 5px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .tagline {
+    font-size: 1.5rem;
+  }
+
+  .tool-header h2 {
+    font-size: 1.5rem;
+  }
+
+  body {
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 2.2rem;
+  }
+
+  .tagline {
+    font-size: 1.3rem;
+  }
+
+  .about-section h2 {
+    font-size: 1.7rem;
+  }
+
+  .about-section p {
+    font-size: 1rem;
+  }
+}
+
+/* Hover effects tương ứng với màu của từng phần */
+.tool-card:nth-child(1):hover {
+  box-shadow: 0 10px 25px rgba(59, 89, 152, 0.25);
+  border-bottom: 3px solid var(--learning-color);
+}
+
+.tool-card:nth-child(2):hover {
+  box-shadow: 0 10px 25px rgba(46, 125, 50, 0.25);
+  border-bottom: 3px solid var(--career-color);
+}
+
+.tool-card:nth-child(3):hover {
+  box-shadow: 0 10px 25px rgba(123, 31, 162, 0.25);
+  border-bottom: 3px solid var(--prompt-color);
+}
+
+.tool-card:nth-child(4):hover {
+  box-shadow: 0 10px 25px rgba(239, 108, 0, 0.25);
+  border-bottom: 3px solid var(--hacks-color);
+}
+
+.tool-card:nth-child(5):hover {
+  box-shadow: 0 10px 25px rgba(2, 136, 209, 0.25);
+  border-bottom: 3px solid var(--resources-color);
+}
+
+.tool-card:nth-child(6):hover {
+  box-shadow: 0 10px 25px rgba(198, 40, 40, 0.25);
+  border-bottom: 3px solid var(--usage-color);
+}
