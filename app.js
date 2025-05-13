@@ -26,6 +26,21 @@ app.get("/prompt-library", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "prompt-library.html"));
 });
 
+// Route for AI Hacks page
+app.get("/ai-hacks", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "ai-hacks.html"));
+});
+
+// Route for Prompt Efficiency Tips page
+app.get("/prompt-efficiency", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "prompt-efficiency.html"));
+});
+
+// Route for Prompt Recipes page
+app.get("/prompt-recipes", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "prompt-recipes.html"));
+});
+
 // Start server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt Recipes | NTU GMBA AI Toolkit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/prompt-recipes.css" />
+    <script>
+      // Embed Geist font from node_modules
+      const fontFiles = {
+        "GeistSans-Regular": "/fonts/geist-sans/Geist-Regular.woff2",
+        "GeistSans-Medium": "/fonts/geist-sans/Geist-Medium.woff2",
+        "GeistSans-Bold": "/fonts/geist-sans/Geist-Bold.woff2",
+      };
+
+      // Create CSS @font-face rules
+      const fontFaceCSS = Object.entries(fontFiles)
+        .map(([name, url]) => {
+          const weight = name.includes("Regular")
+            ? "normal"
+            : name.includes("Medium")
+            ? "500"
+            : name.includes("Bold")
+            ? "bold"
+            : "normal";
+          return `
+          @font-face {
+            font-family: 'GeistSans';
+            src: url('${url}') format('woff2');
+            font-weight: ${weight};
+            font-style: normal;
+            font-display: swap;
+          }
+        `;
+        })
+        .join("");
+
+      // Add CSS to head
+      const style = document.createElement("style");
+      style.textContent = fontFaceCSS;
+      document.head.appendChild(style);
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header recipes-header">
+        <a href="/ai-hacks" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to AI Hacks
+        </a>
+        <h1>NTU - GMBA AI Toolkit</h1>
+        <div class="tagline">AI Hacks & Productivity Tips</div>
+      </header>
+
+      <div class="content-section">
+        <div class="section-title">
+          <h2>Prompt Recipes</h2>
+        </div>
+
+        <div class="intro-text">
+          <p>
+            Step-by-step AI workflows to solve real GMBA challenges — from
+            writing cover letters to summarizing Harvard cases.
+          </p>
+        </div>
+      </div>
+
+      <div class="recipes-grid">
+        <!-- Cover Letter Recipe -->
+        <div class="recipe-card">
+          <h3>Write a Cover Letter for a Tech Job</h3>
+          <span class="tag career-tag">Career</span>
+
+          <div class="user-pain">
+            <strong>User Pain:</strong> Too generic, doesn't match the job
+          </div>
+
+          <div class="ai-steps">
+            <strong>AI Steps:</strong>
+            <ol>
+              <li>Draft a compelling hook</li>
+              <li>Match key experiences to the JD</li>
+              <li>Rewrite for tone and conciseness</li>
+            </ol>
+          </div>
+
+          <a href="#" class="view-recipe-btn">See Full Recipe</a>
+        </div>
+
+        <!-- Harvard Case Recipe -->
+        <div class="recipe-card">
+          <h3>Summarize a Harvard Case for Class</h3>
+          <span class="tag academic-tag">Academic</span>
+
+          <div class="user-pain">
+            <strong>User Pain:</strong> Overwhelmed by long cases
+          </div>
+
+          <div class="ai-steps">
+            <strong>AI Steps:</strong>
+            <ol>
+              <li>Summarize in 5 bullets</li>
+              <li>Extract key takeaway</li>
+              <li>Suggest strategic implications</li>
+            </ol>
+          </div>
+
+          <a href="#" class="view-recipe-btn">See Full Recipe</a>
+        </div>
+
+        <!-- Follow-up Email Recipe -->
+        <div class="recipe-card">
+          <h3>Write a Follow-up Email after Networking</h3>
+          <span class="tag communication-tag">Communication</span>
+
+          <div class="user-pain">
+            <strong>User Pain:</strong> Hard to sound natural & thoughtful
+          </div>
+
+          <div class="ai-steps">
+            <strong>AI Steps:</strong>
+            <ol>
+              <li>Generate a friendly opener</li>
+              <li>Mention shared context</li>
+              <li>Close with a light CTA</li>
+            </ol>
+          </div>
+
+          <a href="#" class="view-recipe-btn">See Full Recipe</a>
+        </div>
+
+        <!-- LinkedIn Post Recipe -->
+        <div class="recipe-card">
+          <h3>Write a 3-Option LinkedIn Post</h3>
+          <span class="tag branding-tag">Branding</span>
+
+          <div class="user-pain">
+            <strong>User Pain:</strong> Don't know how to structure my thoughts
+          </div>
+
+          <div class="ai-steps">
+            <strong>AI Steps:</strong>
+            <ol>
+              <li>Describe your idea</li>
+              <li>Ask AI to generate 3 post angles</li>
+              <li>Refine chosen version to match tone</li>
+            </ol>
+          </div>
+
+          <a href="#" class="view-recipe-btn">See Full Recipe</a>
+        </div>
+
+        <!-- STAR Interview Recipe -->
+        <div class="recipe-card">
+          <h3>Prepare a STAR Interview Answer</h3>
+          <span class="tag career-tag">Career</span>
+
+          <div class="user-pain">
+            <strong>User Pain:</strong> Story is too long or unclear
+          </div>
+
+          <div class="ai-steps">
+            <strong>AI Steps:</strong>
+            <ol>
+              <li>Draft in S–T–A–R order</li>
+              <li>Edit for clarity & impact</li>
+              <li>Add strong final sentence</li>
+            </ol>
+          </div>
+
+          <a href="#" class="view-recipe-btn">See Full Recipe</a>
+        </div>
+
+        <!-- Presentation Bullets Recipe -->
+        <div class="recipe-card">
+          <h3>Generate Pitch Bullets for Group Presentation</h3>
+          <span class="tag academic-tag">Academic</span>
+
+          <div class="user-pain">
+            <strong>User Pain:</strong> Too much data, unclear key point
+          </div>
+
+          <div class="ai-steps">
+            <strong>AI Steps:</strong>
+            <ol>
+              <li>Paste topic or notes</li>
+              <li>Ask AI to create 5-slide bullets</li>
+              <li>Refine for logical flow and time limit</li>
+            </ol>
+          </div>
+
+          <a href="#" class="view-recipe-btn">See Full Recipe</a>
+        </div>
+      </div>
+
+      <footer>
+        <p>Version 1.0 — Released April 2025</p>
+        <p>
+          <i class="fas fa-user-graduate"></i> Created by NTU GMBA 2025 Student
+        </p>
+      </footer>
+    </div>
+
+    <script src="/js/prompt-recipes.js"></script>
+  </body>
+</html>

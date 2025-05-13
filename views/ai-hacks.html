@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Hacks & Productivity Tips | NTU GMBA AI Toolkit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/ai-hacks.css" />
+    <script>
+      // Embed Geist font from node_modules
+      const fontFiles = {
+        "GeistSans-Regular": "/fonts/geist-sans/Geist-Regular.woff2",
+        "GeistSans-Medium": "/fonts/geist-sans/Geist-Medium.woff2",
+        "GeistSans-Bold": "/fonts/geist-sans/Geist-Bold.woff2",
+      };
+
+      // Create CSS @font-face rules
+      const fontFaceCSS = Object.entries(fontFiles)
+        .map(([name, url]) => {
+          const weight = name.includes("Regular")
+            ? "normal"
+            : name.includes("Medium")
+            ? "500"
+            : name.includes("Bold")
+            ? "bold"
+            : "normal";
+          return `
+          @font-face {
+            font-family: 'GeistSans';
+            src: url('${url}') format('woff2');
+            font-weight: ${weight};
+            font-style: normal;
+            font-display: swap;
+          }
+        `;
+        })
+        .join("");
+
+      // Add CSS to head
+      const style = document.createElement("style");
+      style.textContent = fontFaceCSS;
+      document.head.appendChild(style);
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header ai-hacks-header">
+        <a href="/" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        <h1>AI Hacks & Productivity Tips</h1>
+        <div class="tagline">Supercharge your GMBA workflow with AI hacks</div>
+        <div class="subtitle">
+          This section teaches you how to prompt smarter, save time, and avoid
+          AI mistakes — all tailored for business school success.
+        </div>
+      </header>
+
+      <div class="main-cta">
+        <a href="#" class="cta-button">
+          <i class="fas fa-brain"></i> Learn How to Prompt
+        </a>
+      </div>
+
+      <div class="tools-container" id="ai-hacks-container">
+        <div class="tool-card">
+          <div class="tool-header">
+            <h2><i class="fas fa-bolt"></i> Prompt Efficiency Tips</h2>
+          </div>
+          <div class="tool-content">
+            <div class="tool-description">
+              Learn how to write smarter, faster prompts
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <h2>
+              <i class="fas fa-puzzle-piece"></i> Prompt Recipes (Mini
+              Workflows)
+            </h2>
+          </div>
+          <div class="tool-content">
+            <div class="tool-description">
+              Reusable prompt chains for common MBA tasks
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <h2><i class="fas fa-cogs"></i> Productivity Stack</h2>
+          </div>
+          <div class="tool-content">
+            <div class="tool-description">
+              Use AI with Notion, Excel, Gmail...
+            </div>
+            <div class="tool-item-section">
+              <p>Examples + Setup Guides</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <h2><i class="fas fa-shield-alt"></i> Anti-Hallucination Tips</h2>
+          </div>
+          <div class="tool-content">
+            <div class="tool-description">
+              Spot fake facts & improve answer quality
+            </div>
+            <div class="tool-item-section">
+              <p>Detection + re-repropt tricks</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <h2><i class="far fa-clock"></i> Time-Saving Templates</h2>
+          </div>
+          <div class="tool-content">
+            <div class="tool-description">
+              Prebuilt AI templates for reports, slides, and more
+            </div>
+            <div class="tool-item-section">
+              <p>Copy & Customize</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <h2><i class="fas fa-layer-group"></i> Time-Saving Templates</h2>
+          </div>
+          <div class="tool-content">
+            <div class="tool-description">
+              Prebuilt AI templates for reports, slides, and more
+            </div>
+            <div class="tool-item-section">
+              <p>Copy & Customize</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <p>Version 1.0 — Released April 2025</p>
+        <p>
+          <i class="fas fa-user-graduate"></i> Created by NTU GMBA 2025 Student
+        </p>
+      </footer>
+    </div>
+
+    <script src="/js/ai-hacks.js"></script>
+  </body>
+</html>

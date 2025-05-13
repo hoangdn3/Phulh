@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt Efficiency Tips | NTU GMBA AI Toolkit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/prompt-efficiency.css" />
+    <script>
+      // Embed Geist font from node_modules
+      const fontFiles = {
+        "GeistSans-Regular": "/fonts/geist-sans/Geist-Regular.woff2",
+        "GeistSans-Medium": "/fonts/geist-sans/Geist-Medium.woff2",
+        "GeistSans-Bold": "/fonts/geist-sans/Geist-Bold.woff2",
+      };
+
+      // Create CSS @font-face rules
+      const fontFaceCSS = Object.entries(fontFiles)
+        .map(([name, url]) => {
+          const weight = name.includes("Regular")
+            ? "normal"
+            : name.includes("Medium")
+            ? "500"
+            : name.includes("Bold")
+            ? "bold"
+            : "normal";
+          return `
+          @font-face {
+            font-family: 'GeistSans';
+            src: url('${url}') format('woff2');
+            font-weight: ${weight};
+            font-style: normal;
+            font-display: swap;
+          }
+        `;
+        })
+        .join("");
+
+      // Add CSS to head
+      const style = document.createElement("style");
+      style.textContent = fontFaceCSS;
+      document.head.appendChild(style);
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header prompt-header">
+        <a href="/ai-hacks" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to AI Hacks
+        </a>
+        <h1>NTU - GMBA AI Toolkit</h1>
+        <div class="tagline">AI Hacks & Productivity Tips</div>
+      </header>
+
+      <div class="content-section">
+        <div class="section-title">
+          <h2>Prompt Efficiency Tips</h2>
+        </div>
+
+        <div class="intro-text">
+          <p>
+            Writing a good prompt is not just about asking questions — It's
+            about structuring your thinking.
+          </p>
+        </div>
+
+        <ul class="benefits-list">
+          <li>
+            <i class="fas fa-check-circle"></i> Save time by getting better
+            outputs in fewer iterations
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i> Learn how to prompt like a
+            consultant / strategist
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i> Build a reusable mental model
+            for all prompt-based tasks
+          </li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <div class="section-title">
+          <h2>The Prompt Pyramid: 3 Building Blocks</h2>
+        </div>
+
+        <div class="pyramid-container">
+          <div class="pyramid-block">
+            <div class="block-header">[ ROLE ]</div>
+            <div class="block-content">
+              You are a senior HR recruiter at a tech company.
+            </div>
+          </div>
+          <div class="pyramid-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="pyramid-block">
+            <div class="block-header">[ CONTEXT ]</div>
+            <div class="block-content">
+              I am a GMBA student applying for a Product Manager job.
+            </div>
+          </div>
+          <div class="pyramid-arrow"><i class="fas fa-arrow-down"></i></div>
+          <div class="pyramid-block">
+            <div class="block-header">[ TASK ]</div>
+            <div class="block-content">
+              Please write a 3-sentence summary for my Linkein headline.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="section-title">
+          <h2>Tips to Maximize Prompt Efficiency</h2>
+        </div>
+
+        <div class="tip-container">
+          <div class="tip-header" id="tip1-header">
+            <h3>Tip 1: Always assign a role</h3>
+            <span class="expand-icon">+</span>
+          </div>
+          <div class="tip-content" id="tip1-content">
+            <p>
+              <strong>Give the AI a clear professional identity</strong> — this
+              helps set tone, format, and expected domain.
+            </p>
+            <div class="example-prompt">
+              <strong>Example Prompt:</strong><br />
+              "You are a senior recruiter at Google. Review my resume and
+              generate 3 bullet points that match the job description."
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-container">
+          <div class="tip-header" id="tip2-header">
+            <h3>Tip 2: Define expected output</h3>
+            <span class="expand-icon">+</span>
+          </div>
+          <div class="tip-content" id="tip2-content">
+            <p>
+              <strong>Don't just ask for help</strong> — say what format you
+              need (bullets? paragraph?), tone, and any limits (e.g., word
+              count).
+            </p>
+            <div class="example-prompt">
+              <strong>Example Prompt:</strong><br />
+              "Summarize this article in 5 bullet points, using a confident MBA
+              tone, and under 80 words."
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-container">
+          <div class="tip-header" id="tip3-header">
+            <h3>Tip 3: Add just enough context</h3>
+            <span class="expand-icon">+</span>
+          </div>
+          <div class="tip-content" id="tip3-content">
+            <p>
+              <strong>AI doesn't need your life story</strong> — just who you
+              are, your purpose, and audience/task.
+            </p>
+            <div class="example-prompt">
+              <strong>Example Prompt:</strong><br />
+              "I'm a GMBA student preparing a 3-minute pitch on digital banking
+              adoption in Vietnam for a Strategy class."
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-container">
+          <div class="tip-header" id="tip4-header">
+            <h3>Tip 4: Use the 3-layer structure</h3>
+            <span class="expand-icon">+</span>
+          </div>
+          <div class="tip-content" id="tip4-content">
+            <p>
+              <strong>Structure all prompts like this:</strong><br />
+              [Role] + [Context] + [Task] → Helps AI think in frames.
+            </p>
+            <div class="example-prompt">
+              <strong>Example Prompt:</strong><br />
+              "You're a McKinsey consultant. I'm researching market entry
+              options into Thailand for an EdTech product. Suggest 3 frameworks
+              and recommend one."
+            </div>
+          </div>
+        </div>
+
+        <div class="tip-container">
+          <div class="tip-header" id="tip5-header">
+            <h3>Tip 5: Break complex tasks into steps</h3>
+            <span class="expand-icon">+</span>
+          </div>
+          <div class="tip-content" id="tip5-content">
+            <p>
+              <strong
+                >For unclear or multi-layered tasks, ask step by step.</strong
+              >
+              You'll save time and control quality better.
+            </p>
+            <div class="example-prompt">
+              <strong>Example Prompt:</strong><br />
+              "First, create an outline for a LinkedIn post about my summer
+              internship at KPMG. Then expand the first point into 3 persuasive
+              sentences."
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section conclusion">
+        <p>
+          Now try using this structure with your own task; writing an email /
+          summarizing a case / simulating an interview.
+        </p>
+      </div>
+
+      <footer>
+        <p>Version 1.0 — Released April 2025</p>
+        <p>
+          <i class="fas fa-user-graduate"></i> Created by NTU GMBA 2025 Student
+        </p>
+      </footer>
+    </div>
+
+    <script src="/js/prompt-efficiency.js"></script>
+  </body>
+</html>
